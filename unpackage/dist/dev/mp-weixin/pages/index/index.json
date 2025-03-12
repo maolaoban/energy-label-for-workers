@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "打工人能效标识",
+  "usingComponents": {
+    "energy-scale": "../../components/energy-scale/energy-scale",
+    "avatar": "../../components/avatar/avatar"
+  }
+}

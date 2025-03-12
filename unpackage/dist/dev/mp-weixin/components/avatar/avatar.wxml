@@ -1,0 +1,1 @@
+<view class="avatar" bindtap="{{d}}" style="{{'background-color:' + e}}"><view wx:if="{{a}}" class="{{b}}"><view class="eye"></view><view class="eye"></view><view class="mouth"></view></view><image wx:else class="avatar-image" src="{{c}}" mode="aspectFill"></image></view>
