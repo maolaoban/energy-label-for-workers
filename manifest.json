@@ -79,7 +79,7 @@
     "h5" : {
         "router" : {
             "mode" : "hash",
-            "base" : "/energy-label"
+            "base" : "/energy-label-for-worker"
         },
         "title" : "打工能效标识"
     }
