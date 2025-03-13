@@ -27,7 +27,7 @@
 			<input class="energy-footer" type="text" value="拒绝精神内耗，有事直接发疯" />
 		</div>
 		<view class="operate">
-			<view class="tips">!!!点击文字进行编辑,点击表情更换图像</view>
+			<view class="tips" v-text="'!!!点击进行编辑,建议在chrome浏览器中使用'"></view>
 			<!-- #ifdef H5 -->
 			<view class="download" @click="download">下载</view>
 			<!-- #endif -->
@@ -46,6 +46,8 @@
 	const query = uni.createSelectorQuery().in(instance.proxy);
 
 	const targetElement = ref(null);
+	
+	const dpr = window.devicePixelRatio || 1;
 
 	const defaultText = reactive([
 		{ key: 0, title: '每周额定工作量(H)', desc: "40" },
@@ -75,8 +77,17 @@
 		// } catch (error) {
 		// 	console.error('截图失败:', error);
 		// }
-		domtoimage.toPng(targetElement.value)
-		  .then((dataUrl) => {
+		domtoimage.toPng(targetElement.value, {
+			quality: 1,       // 质量设为最高（0~1）
+			width: targetElement.value.offsetWidth * dpr,   // 按 DPR 放大宽度
+			height: targetElement.value.offsetHeight * dpr, // 按 DPR 放大高度
+			style: {
+				transform: `scale(${dpr})`,       // 缩放元素
+			    transformOrigin: 'top left',
+			    width: `${targetElement.value.offsetWidth}px`,
+			    height: `${targetElement.value.offsetHeight}px`
+			}
+		}).then((dataUrl) => {
 		    const link = document.createElement('a');
 		    link.download = 'energy-label-for-workers.png';
 		    link.href = dataUrl;
@@ -94,6 +105,7 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 20rpx;
+		padding-top: 25rpx;
 
 		.energy-container {
 			width: 700rpx;

@@ -3,7 +3,7 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "打工能效标识",
+				"navigationStyle": "custom",
 				"usingComponents": {
 					"wxml-to-canvas": "/wxcomponents/wxml-to-canvas/index"
 				}
