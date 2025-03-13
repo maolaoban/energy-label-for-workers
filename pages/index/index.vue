@@ -15,7 +15,7 @@
 				</view>
 				<view class="worker-info">
 					<view>规格型号：</view>
-					<input class="worker-info_input" type="text" value="DGR-2025/3/13" />
+					<input class="worker-info_input" type="text" :value="model" />
 				</view>
 			</view>
 			<view class="energy-detail">
@@ -44,15 +44,17 @@
 	const instance = getCurrentInstance();
 
 	const query = uni.createSelectorQuery().in(instance.proxy);
+	
+	const model = ref('DRG-' + Date.now());
 
 	const targetElement = ref(null);
 	
 	const dpr = window.devicePixelRatio || 1;
 
 	const defaultText = reactive([
-		{ key: 0, title: '每周额定工作量(H)', desc: "40" },
+		{ key: 0, title: '每周最大工作量(H)', desc: "44" },
 		{ key: 1, title: '每日额定工作量(H)', desc: "8" },
-		{ key: 2, title: '每周最大工作量(H)', desc: "44" },
+		{ key: 2, title: '每周额定工作量(H)', desc: "40" },
 	])
 	
 	const downloading = ref(false);
