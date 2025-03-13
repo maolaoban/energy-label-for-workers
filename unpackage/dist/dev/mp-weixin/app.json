@@ -8,5 +8,21 @@
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },
+  "lazyCodeLoading": "requiredComponents",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.1",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "permission": {
+    "scope.writePhotosAlbum": {
+      "desc": "保存图片到相册"
+    }
+  },
   "usingComponents": {}
 }

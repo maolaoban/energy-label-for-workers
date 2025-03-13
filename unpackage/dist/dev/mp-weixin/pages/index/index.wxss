@@ -23,17 +23,10 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-page {
-  font-family: SimHei;
-}
 .content {
   min-height: 100vh;
   background-color: #f8f8f8;
   overflow: hidden;
-}
-.content .tips {
-  text-align: center;
-  font-size: 24rpx;
 }
 .content .energy-container {
   width: 700rpx;
@@ -50,22 +43,25 @@ page {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-family: "ZhengDao";
 }
 .content .energy-container .energy-header_title {
-  font-size: 60rpx;
+  font-size: 80rpx;
   text-align: center;
   margin-top: 50rpx;
-  font-weight: bolder;
+  letter-spacing: 10rpx;
+  line-height: 80rpx;
 }
 .content .energy-container .energy-header_desc {
-  font-size: 20rpx;
+  font-size: 30rpx;
   text-align: center;
-  font-weight: bolder;
-  word-spacing: 40rpx;
-  letter-spacing: 4rpx;
-  margin-top: 10rpx;
+  word-spacing: 20rpx;
+  letter-spacing: 10rpx;
+  font-weight: bold;
+  line-height: 30rpx;
 }
-.content .energy-container .energy-label, .content .energy-container .energy-detail {
+.content .energy-container .energy-label,
+.content .energy-container .energy-detail {
   width: 660rpx;
   border-radius: 20rpx;
   box-sizing: border-box;
@@ -77,19 +73,6 @@ page {
   flex-direction: column;
   gap: 25rpx;
   margin-top: 50rpx;
-}
-.content .energy-container .energy-label__scale {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 20rpx;
-  margin-bottom: 20rpx;
-}
-.content .energy-container .energy-label .energy-custom {
-  width: 250rpx;
-  height: 250rpx;
-  margin-top: 20rpx;
-  border-radius: 4rpx;
-  overflow: hidden;
 }
 .content .energy-container .energy-label .worker-info {
   display: flex;
@@ -104,7 +87,6 @@ page {
 }
 .content .energy-container .energy-detail {
   color: #000;
-  font-weight: bold;
   display: flex;
   flex-direction: column;
   gap: 20rpx;
@@ -114,6 +96,7 @@ page {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  font-weight: bold;
 }
 .content .energy-container .energy-detail_field .field-left {
   text-align: left;
@@ -135,8 +118,9 @@ page {
   width: 100%;
 }
 .content .operate {
-  width: 100%;
+  width: 750rpx;
   padding: 0 30rpx;
+  margin: 0 auto;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;

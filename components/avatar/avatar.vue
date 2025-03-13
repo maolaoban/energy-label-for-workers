@@ -43,8 +43,8 @@ const chooseImage = () => {
 
 <style lang="scss">
 .avatar {
-	width: 250rpx;
-	height: 250rpx;
+	width: 300rpx;
+	height: 300rpx;
 	display: flex;
 	align-items: center;
 	justify-content: center;

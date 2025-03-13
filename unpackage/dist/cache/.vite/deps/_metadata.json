@@ -1,8 +1,25 @@
 {
-  "hash": "b884dab9",
+  "hash": "c1114917",
   "configHash": "30c6262e",
-  "lockfileHash": "04d75623",
-  "browserHash": "ceb1f88d",
-  "optimized": {},
-  "chunks": {}
+  "lockfileHash": "270d8f4f",
+  "browserHash": "34d2e799",
+  "optimized": {
+    "html2canvas": {
+      "src": "../../../../../node_modules/html2canvas/dist/html2canvas.esm.js",
+      "file": "html2canvas.js",
+      "fileHash": "1a51da78",
+      "needsInterop": false
+    },
+    "dom-to-image": {
+      "src": "../../../../../node_modules/dom-to-image/src/dom-to-image.js",
+      "file": "dom-to-image.js",
+      "fileHash": "e9400921",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-Y2F7D3TJ": {
+      "file": "chunk-Y2F7D3TJ.js"
+    }
+  }
 }

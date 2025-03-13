@@ -1,5 +1,13 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
+if (!Array) {
+  const _easycom_avatar2 = common_vendor.resolveComponent("avatar");
+  _easycom_avatar2();
+}
+const _easycom_avatar = () => "../avatar/avatar.js";
+if (!Math) {
+  _easycom_avatar();
+}
 const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
   __name: "energy-scale",
   emits: ["change"],
@@ -12,12 +20,9 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
       { key: 5, level: "5", color: "#ed1c24" }
     ]);
     const scaleSelected = common_vendor.ref(scaleList[0]);
-    const emit = __emit;
     const scaleClick = (scale) => {
       scaleSelected.value = scale;
-      emit("change", scale);
     };
-    emit("change", common_vendor.unref(scaleSelected));
     return (_ctx, _cache) => {
       return {
         a: common_vendor.f(scaleList, (item, k0, i0) => {
@@ -31,7 +36,10 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
         }),
         b: common_vendor.t(scaleSelected.value.level),
         c: scaleSelected.value.color,
-        d: 25 + (scaleSelected.value.key - 1) * 50 - 30 + "rpx"
+        d: 30 + (scaleSelected.value.key - 1) * 60 - 30 + "rpx",
+        e: common_vendor.p({
+          scaleInfo: scaleSelected.value
+        })
       };
     };
   }

@@ -6977,7 +6977,7 @@ function initOnError() {
 function initRuntimeSocketService() {
   const hosts = "192.168.5.11,127.0.0.1";
   const port = "8090";
-  const id = "mp-weixin_6pzoQo";
+  const id = "mp-weixin_4OT3rU";
   const lazy = typeof swan !== "undefined";
   let restoreError = lazy ? () => {
   } : initOnError();
@@ -7913,6 +7913,7 @@ exports.createSSRApp = createSSRApp;
 exports.defineComponent = defineComponent;
 exports.e = e;
 exports.f = f;
+exports.getCurrentInstance = getCurrentInstance;
 exports.index = index;
 exports.n = n;
 exports.o = o;

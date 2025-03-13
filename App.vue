@@ -14,4 +14,15 @@
 
 <style>
 	/*每个页面公共css */
+	@font-face {
+		font-family: 'ZhengDao';
+		src: url('./static/ZhengDao.ttf');
+	}
+	@font-face {
+		font-family: 'LocalSimHei';
+		src: url('./static/SourceHanSansSC-Normal-Min.ttf');
+	}
+	page {
+		font-family: 'LocalSimHei';
+	}
 </style>

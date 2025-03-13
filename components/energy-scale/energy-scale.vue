@@ -1,18 +1,21 @@
 <template>
-	<view class="energy-scale">
-		<view class="energy-scale_top">耗能低</view>
-		<view class="energy-scale_body">
-			<view class="energy-scale_content">
-				<view :class="'energy-scale_item energy-scale_' + item.level" :style="{backgroundColor: item.color}"
-					v-for="item in scaleList" :key="item.key" @click="scaleClick(item)">{{ item.level }}</view>
+	<view class="energy-scale_container">
+		<view class="energy-scale">
+			<view class="energy-scale_top">耗能低</view>
+			<view class="energy-scale_body">
+				<view class="energy-scale_content">
+					<view :class="'energy-scale_item energy-scale_' + item.level" :style="{backgroundColor: item.color}"
+						v-for="item in scaleList" :key="item.key" @click="scaleClick(item)">{{ item.level }}</view>
+				</view>
+				<view class="energy-scale_selected"
+					:style="{backgroundColor: scaleSelected.color, top: (30 + (scaleSelected.key - 1) * 60 - 30) + 'rpx'}">
+					<text class="level-text">{{scaleSelected.level}}</text>
+					<text>级</text>
+				</view>
 			</view>
-			<view class="energy-scale_selected"
-				:style="{backgroundColor: scaleSelected.color, top: (25 + (scaleSelected.key - 1) * 50 - 30) + 'rpx'}">
-				<text class="level-text">{{scaleSelected.level}}</text>
-				<text>级</text>
-			</view>
+			<view class="energy-scale_bottom">耗能高</view>
 		</view>
-		<view class="energy-scale_bottom">耗能高</view>
+		<avatar :scaleInfo="scaleSelected"></avatar>
 	</view>
 </template>
 
@@ -42,14 +45,20 @@
 
 	const scaleClick = (scale: ScaleItem) => {
 		scaleSelected.value = scale;
-		emit('change', scale);
 	}
-	
-	emit('change', unref(scaleSelected));
 	
 </script>
 
 <style lang="scss">
+	.energy-scale_container {
+		box-sizing: border-box;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 20rpx;
+		margin-bottom: 20rpx;
+	}
+	
 	.energy-scale {
 		width: 120rpx;
 		display: flex;
@@ -64,15 +73,14 @@
 
 		&_content {
 			width: 120rpx;
-			height: 250rpx;
 			-webkit-clip-path: polygon(30% 0, 70% 0, 100% 100%, 0% 100%);
 			clip-path: polygon(30% 0, 70% 0, 100% 100%, 0% 100%);
 
 			.energy-scale_item {
 				width: 100%;
-				height: 20%;
+				height: 60rpx;
 				color: #fff;
-				font-size: 16rpx;
+				font-size: 28rpx;
 				font-weight: bold;
 				display: flex;
 				align-items: center;

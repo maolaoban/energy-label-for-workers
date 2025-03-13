@@ -1,24 +1,21 @@
 <template>
 	<view class="content">
-		<view class="energy-container">
+		<div class="energy-container" ref="targetElement">
 			<view class="energy-header">
-				<text class="energy-header_title">打工人能效标识</text>
-				<text class="energy-header_desc">WORKERS ENERGY LABEL</text>
+				<text class="energy-header_title">打工能效标识</text>
+				<text class="energy-header_desc">WORK ENERGY LABEL</text>
 			</view>
 			<view class="energy-label">
-				<view class="energy-label__scale">
-					<energy-scale @change="scaleChange"></energy-scale>
-					<view class="energy-custom">
-						<avatar :scaleInfo="scaleInfo"></avatar>
-					</view>
+				<view class="energy-label_scale">
+					<energy-scale></energy-scale>
 				</view>
 				<view class="worker-info">
 					<view>打工人名称：</view>
-					<input class="worker-info_input" type="text" value="毛小毛" />
+					<input class="worker-info_input" type="text" value="打工人" />
 				</view>
 				<view class="worker-info">
-					<view>打工人职位：</view>
-					<input class="worker-info_input" type="text" value="WEB前端全干工程师" />
+					<view>规格型号：</view>
+					<input class="worker-info_input" type="text" value="DGR-2025/3/13" />
 				</view>
 			</view>
 			<view class="energy-detail">
@@ -27,114 +24,132 @@
 					<input class="field-right" type="text" :value="item.desc" />
 				</view>
 			</view>
-			<input class="energy-footer" type="text" value="工作生活平衡，享受完美人生" />
-		</view>
+			<input class="energy-footer" type="text" value="拒绝精神内耗，有事直接发疯" />
+		</div>
 		<view class="operate">
-			<view class="tips">!!!点击文字进行编辑</view>
-			<view class="download">下载</view>
+			<view class="tips">!!!点击文字进行编辑,点击表情更换图像</view>
+			<!-- #ifdef H5 -->
+			<view class="download" @click="download">下载</view>
+			<!-- #endif -->
 		</view>
 	</view>
 </template>
 
 <script setup lang="ts">
-	import { reactive, ref } from 'vue';
+	import { getCurrentInstance, reactive, ref } from 'vue';
 	import { ScaleItem } from '../../components/energy-scale/energy-scale.vue';
+	// import html2canvas from 'html2canvas';
+	import domtoimage from 'dom-to-image';
+
+	const instance = getCurrentInstance();
+
+	const query = uni.createSelectorQuery().in(instance.proxy);
+
+	const targetElement = ref(null);
 
 	const defaultText = reactive([
-		{ key: 0, title: '每周额定工作量(H)', desc: "40"},
+		{ key: 0, title: '每周额定工作量(H)', desc: "40" },
 		{ key: 1, title: '每日额定工作量(H)', desc: "8" },
 		{ key: 2, title: '每周最大工作量(H)', desc: "44" },
 	])
-	
-	const scaleInfo = ref(null);
-	
-	const scaleChange = (scale: ScaleItem) => {
-		scaleInfo.value = scale;
+
+	const download = async () => {
+		// try {
+		// 	// 1. 渲染DOM到Canvas
+		// 	const canvas = await html2canvas(targetElement.value, {
+		// 		backgroundColor: 'transparent', // 设置背景色
+		// 		useCORS: true, // 允许跨域图片
+		// 	});
+
+		// 	// 2. 将Canvas转为图片URL
+		// 	const imgData = canvas.toDataURL('image/png');
+		// 	console.log(imgData)
+
+		// 	// 3. 创建虚拟链接并触发下载
+		// 	const link = document.createElement('a');
+		// 	link.download = 'screenshot.png';
+		// 	link.href = imgData;
+		// 	link.click();
+
+		// 	console.log('图片已保存');
+		// } catch (error) {
+		// 	console.error('截图失败:', error);
+		// }
+		domtoimage.toPng(targetElement.value)
+		  .then((dataUrl) => {
+		    const link = document.createElement('a');
+		    link.download = 'energy-label-for-workers.png';
+		    link.href = dataUrl;
+		    link.click();
+		  });
 	}
 </script>
 
 <style lang="scss">
-	page {
-		font-family: SimHei;
-	}
 	.content {
 		min-height: 100vh;
 		background-color: #f8f8f8;
 		overflow: hidden;
-		
-		.tips {
-			text-align: center;
-			font-size: 24rpx;
-		}
-		
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 20rpx;
+
 		.energy-container {
 			width: 700rpx;
 			height: auto;
 			border-radius: 20rpx;
-			margin: 25rpx auto;
 			background-color: #00a0e9;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			
+
 			.energy-header {
 				color: #fff;
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
-				
+				font-family: 'ZhengDao';
+
 				&_title {
-					font-size: 60rpx;
+					font-size: 80rpx;
 					text-align: center;
 					margin-top: 50rpx;
-					font-weight: bolder;
+					letter-spacing: 10rpx;
+					line-height: 80rpx;
 				}
-				
+
 				&_desc {
-					font-size: 20rpx;
+					font-size: 30rpx;
 					text-align: center;
-					font-weight: bolder;
-					word-spacing: 40rpx;
-					letter-spacing: 4rpx;
-					margin-top: 10rpx;
+					word-spacing: 20rpx;
+					letter-spacing: 10rpx;
+					font-weight: bold;
+					line-height: 30rpx;
 				}
 			}
-			
-			.energy-label, .energy-detail {
+
+			.energy-label,
+			.energy-detail {
 				width: 660rpx;
 				border-radius: 20rpx;
 				box-sizing: border-box;
 				padding: 30rpx;
 				background-color: #fff;
 			}
-			
+
 			.energy-label {
 				display: flex;
 				flex-direction: column;
 				gap: 25rpx;
 				margin-top: 50rpx;
-				
-				&__scale {
-					display: flex;
-					justify-content: space-between;
-					padding: 0 20rpx;
-					margin-bottom: 20rpx;
-				}
-				
-				.energy-custom {
-					width: 250rpx;
-					height: 250rpx;
-					margin-top: 20rpx;
-					border-radius: 4rpx;
-					overflow: hidden;
-				}
-				
+
 				.worker-info {
 					display: flex;
 					justify-content: space-between;
 					font-size: 28rpx;
 					font-family: SimHei;
-					
+
 					&_input {
 						text-align: right;
 						font-weight: bold;
@@ -142,59 +157,60 @@
 					}
 				}
 			}
-			
+
 			.energy-detail {
 				color: #000;
-				font-weight: bold;
 				display: flex;
 				flex-direction: column;
 				gap: 20rpx;
 				margin-top: 25rpx;
-				
+
 				&_field {
 					width: 100%;
 					display: flex;
 					justify-content: space-between;
-					
+					font-weight: bold;
+
 					.field-left {
 						text-align: left;
 						width: 70%;
 					}
-					
+
 					.field-right {
 						text-align: right;
 						width: 30%;
 					}
 				}
-				
+
 				&_field:nth-child(1) {
 					padding-bottom: 25rpx;
 					border-bottom: 1rpx solid #333;
 				}
 			}
-			
+
 			.energy-footer {
 				text-align: center;
-				padding: 10px;
+				margin: 10px;
 				font-size: 12px;
 				color: #fff;
 				width: 100%;
 			}
 		}
-		
+
 		.operate {
-			width: 100%;
+			width: 750rpx;
 			padding: 0 30rpx;
+			margin: 0 auto;
 			box-sizing: border-box;
 			display: flex;
 			justify-content: space-between;
 			align-items: start;
-			
+
 			.tips {
 				font-size: 24rpx;
 				color: #333;
 			}
-			
+
 			.download {
 				width: 140rpx;
 				height: 60rpx;
@@ -207,5 +223,4 @@
 			}
 		}
 	}
-
 </style>
