@@ -29,7 +29,7 @@
 		<view class="operate">
 			<view class="tips" v-text="'!!!点击进行编辑,建议在chrome浏览器中使用'"></view>
 			<!-- #ifdef H5 -->
-			<view class="download" @click="download">下载</view>
+			<view :class="['download', downloading ? 'disabled' : '']" @click="download">{{ downloading ? '下载中...' : '下载'}}</view>
 			<!-- #endif -->
 		</view>
 	</view>
@@ -54,8 +54,12 @@
 		{ key: 1, title: '每日额定工作量(H)', desc: "8" },
 		{ key: 2, title: '每周最大工作量(H)', desc: "44" },
 	])
+	
+	const downloading = ref(false);
 
 	const download = async () => {
+		if(downloading.value) return
+		downloading.value = true;
 		// try {
 		// 	// 1. 渲染DOM到Canvas
 		// 	const canvas = await html2canvas(targetElement.value, {
@@ -92,7 +96,9 @@
 		    link.download = 'energy-label-for-workers.png';
 		    link.href = dataUrl;
 		    link.click();
-		  });
+		}).finally(() => {
+			downloading.value = false;
+		});
 	}
 </script>
 
@@ -229,9 +235,13 @@
 				border-radius: 10rpx;
 				background-color: #00a0e9;
 				color: #fff;
-				font-size: 28rpx;
+				font-size: 24rpx;
 				line-height: 60rpx;
 				text-align: center;
+			}
+			
+			.disabled {
+				background-color: #ccc;
 			}
 		}
 	}
