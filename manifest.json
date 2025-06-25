@@ -54,9 +54,6 @@
         "setting" : {
             "urlCheck" : false
         },
-        "usingComponents" : {
-            "wxml-to-canvas" : "wxml-to-canvas"
-        },
         "permission" : {
             "scope.writePhotosAlbum" : {
                 "desc" : "保存图片到相册"
@@ -81,6 +78,11 @@
             "mode" : "hash",
             "base" : "./"
         },
-        "title" : "打工能效标识"
+        "title" : "打工能效标识",
+        "optimization" : {
+            "treeShaking" : {
+                "enable" : true
+            }
+        }
     }
 }
