@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy-docs": "rm -rf docs && cp -r unpackage/dist/build/web docs && cp sitemap.xml docs/ && cp robots.txt docs/ && rm -f docs/static/sitemap.xml docs/static/robots.txt"
   },
   "repository": {
     "type": "git",
