@@ -107,13 +107,14 @@
 <style lang="scss">
 	.content {
 		min-height: 100vh;
-		background-color: #f8f8f8;
+		background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f7 50%, #f5f7fa 100%);
 		overflow: hidden;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 20rpx;
-		padding-top: 25rpx;
+		gap: 24rpx;
+		padding: 30rpx 0;
+		position: relative;
 
 		.energy-container {
 			width: 700rpx;
