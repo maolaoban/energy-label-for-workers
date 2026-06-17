@@ -1,10 +1,11 @@
-import {
-  __commonJS
-} from "./chunk-Y2F7D3TJ.js";
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __commonJS = (cb, mod) => function __require() {
+  return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+};
 
-// C:/Users/mao/Documents/HBuilderProjects/energy-label-for-workers/node_modules/dom-to-image/src/dom-to-image.js
+// ../../../../../../Users/maopengchao/code/energy-label-for-workers/node_modules/dom-to-image/src/dom-to-image.js
 var require_dom_to_image = __commonJS({
-  "C:/Users/mao/Documents/HBuilderProjects/energy-label-for-workers/node_modules/dom-to-image/src/dom-to-image.js"(exports, module) {
+  "../../../../../../Users/maopengchao/code/energy-label-for-workers/node_modules/dom-to-image/src/dom-to-image.js"(exports, module) {
     (function(global) {
       "use strict";
       var util = newUtil();

@@ -1,25 +1,15 @@
 {
-  "hash": "c1114917",
-  "configHash": "30c6262e",
+  "hash": "cbe33098",
+  "configHash": "fc45a768",
   "lockfileHash": "270d8f4f",
-  "browserHash": "34d2e799",
+  "browserHash": "9da1d22f",
   "optimized": {
-    "html2canvas": {
-      "src": "../../../../../node_modules/html2canvas/dist/html2canvas.esm.js",
-      "file": "html2canvas.js",
-      "fileHash": "1a51da78",
-      "needsInterop": false
-    },
     "dom-to-image": {
       "src": "../../../../../node_modules/dom-to-image/src/dom-to-image.js",
       "file": "dom-to-image.js",
-      "fileHash": "e9400921",
+      "fileHash": "38407463",
       "needsInterop": true
     }
   },
-  "chunks": {
-    "chunk-Y2F7D3TJ": {
-      "file": "chunk-Y2F7D3TJ.js"
-    }
-  }
+  "chunks": {}
 }

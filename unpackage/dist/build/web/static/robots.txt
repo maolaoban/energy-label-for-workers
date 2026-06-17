@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /node_modules/
-Disallow: /.git/
-
-Sitemap: https://maolaoban.github.io/energy-label-for-workers/sitemap.xml

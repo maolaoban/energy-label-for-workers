@@ -118,7 +118,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: center;
+		padding-top: 40rpx;
 		gap: 24rpx;
 		position: relative;
 
@@ -172,6 +172,7 @@
 				margin-top: 50rpx;
 
 				.worker-info {
+					white-space: nowrap;
 					display: flex;
 					justify-content: space-between;
 					font-size: 28rpx;
@@ -258,7 +259,6 @@
 	@media screen and (min-width: 768px) {
 		.content {
 			padding: 60px 0;
-			justify-content: normal;
 		}
 	}
 </style>
