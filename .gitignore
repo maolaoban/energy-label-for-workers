@@ -1,0 +1,36 @@
+# 依赖
+node_modules/
+package-lock.json
+
+# 编译输出
+unpackage/
+dist/
+build/
+
+# 本地配置
+.local/
+.env.local
+.env.*.local
+.mimocode
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
+npm-debug.log*
+
+# 测试
+coverage/
+
+# 临时文件
+temp/
+tmp/
