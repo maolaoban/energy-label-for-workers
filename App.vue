@@ -24,5 +24,6 @@
 	}
 	page {
 		font-family: 'LocalSimHei';
+		background: linear-gradient(135deg, #f0f4f8 0%, #e8f0f7 50%, #f5f7fa 100%);
 	}
 </style>
