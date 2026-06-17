@@ -1,7 +1,7 @@
 {
     "name" : "energy-label-for-workers",
     "appid" : "__UNI__1FDBA33",
-    "description" : "",
+    "description" : "打工能效标识 - 用能耗标识的方式评估你的打工效能，支持自定义头像、文字信息，一键生成专属能效标识图片",
     "versionName" : "1.0.0",
     "versionCode" : "100",
     "transformPx" : false,

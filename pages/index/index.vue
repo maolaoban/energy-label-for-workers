@@ -1,5 +1,6 @@
 <template>
 	<view class="content">
+		<guide></guide>
 		<div class="energy-container" ref="targetElement">
 			<view class="energy-header">
 				<text class="energy-header_title">打工能效标识</text>
@@ -38,6 +39,7 @@
 <script setup lang="ts">
 	import { getCurrentInstance, reactive, ref } from 'vue';
 	import { ScaleItem } from '../../components/energy-scale/energy-scale.vue';
+	import guide from '../../components/guide/guide.vue';
 	// import html2canvas from 'html2canvas';
 	import domtoimage from 'dom-to-image';
 
@@ -98,6 +100,10 @@
 		    link.download = 'energy-label-for-workers.png';
 		    link.href = dataUrl;
 		    link.click();
+			uni.showToast({
+				icon: 'none',
+				title: '下载成功'
+			});
 		}).finally(() => {
 			downloading.value = false;
 		});
@@ -112,8 +118,8 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		justify-content: center;
 		gap: 24rpx;
-		padding: 30rpx 0;
 		position: relative;
 
 		.energy-container {
@@ -246,6 +252,13 @@
 			.disabled {
 				background-color: #ccc;
 			}
+		}
+	}
+	
+	@media screen and (min-width: 768px) {
+		.content {
+			padding: 60px 0;
+			justify-content: normal;
 		}
 	}
 </style>
